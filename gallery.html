@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Room Image Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 2rem;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .row {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .row img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .row img:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 960px) {
+      .row img {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mwalimu Hotel Gallery</h1>
+
+  <div class="gallery">
+    <div class="row">
+      <img src="family.jpg" alt="Family Room" />
+      <img src="pres.jpg" alt="Pre Room" />
+      <img src="deluxe.jpg" alt="Deluxe Room" />
+    </div>
+
+    <div class="row">
+      <img src="lux.jpg" alt="Luxury Room" />
+      <img src="park.jpg" alt="Park View Room" />
+      <img src="mwal.jpg" alt="Mwal Room" />
+    </div>
+
+    <div class="row">
+      <img src="tea.jpg" alt="Tea" />
+      <img src="chicken.jpg" alt="Chicken Dish" />
+      <img src="piz.jpg" alt="Pizza" />
+    </div>
+  </div>
+
+</body>
+</html>

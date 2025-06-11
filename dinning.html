@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Types of Dining</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .dining-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .dining-card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .dining-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .dining-card h3 {
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    .dining-card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Types of Dining</h1>
+  <div class="dining-container">
+    <div class="dining-card">
+      <h3>Fine Dining</h3>
+      <p>Elegant atmosphere, high-quality food, and professional service. Often includes multiple courses and dress codes.</p>
+    </div>
+
+    <div class="dining-card">
+      <h3>Casual Dining</h3>
+      <p>Relaxed environment with table service and moderately priced menus. Ideal for families or casual outings.</p>
+    </div>
+
+    <div class="dining-card">
+      <h3>Fast Food</h3>
+      <p>Quick service, inexpensive meals, often takeaway-focused. Includes burgers, fries, pizza, etc.</p>
+    </div>
+
+    <div class="dining-card">
+      <h3>Café</h3>
+      <p>Light meals, coffee, and pastries served in a cozy, casual setting. Often great for working or reading.</p>
+    </div>
+
+    <div class="dining-card">
+      <h3>Buffet</h3>
+      <p>Self-service dining with a variety of dishes available. Eat as much as you like for a fixed price.</p>
+    </div>
+
+    <div class="dining-card">
+      <h3>Family Style</h3>
+      <p>Meals served in large portions for sharing at the table, promoting a communal dining experience.</p>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Venue Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 2rem;
+      margin: 0;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .menu-button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .menu-section {
+      display: none;
+      background: white;
+      border: 2px solid #007bff;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .menu-section h3 {
+      margin-top: 0;
+      color: #007bff;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    .token-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .token {
+      background-color: #eaf4ff;
+      color: #007bff;
+      padding: 8px 12px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .token.selected {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .booking-form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .submit-button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="button-container">
+    <button class="menu-button" onclick="toggleMenu()">Menu</button>
+  </div>
+
+  <div class="menu-section" id="menuSection">
+    <h3>Select a Venue Type</h3>
+    <div class="token-list" id="tokenList">
+      <span class="token" onclick="selectVenue(this)">Boardrooms</span>
+      <span class="token" onclick="selectVenue(this)">Meeting Rooms</span>
+      <span class="token" onclick="selectVenue(this)">Halls</span>
+      <span class="token" onclick="selectVenue(this)">Pool Rooms</span>
+      <span class="token" onclick="selectVenue(this)">Ballrooms</span>
+    </div>
+
+    <form class="booking-form" onsubmit="sendBooking(event)">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="date" id="date" required />
+      <input type="time" id="time" required />
+      <button type="submit" class="submit-button">Book via WhatsApp</button>
+    </form>
+  </div>
+
+  <script>
+    let selectedVenue = "";
+
+    function toggleMenu() {
+      const menu = document.getElementById('menuSection');
+      menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function selectVenue(element) {
+      document.querySelectorAll('.token').forEach(token => token.classList.remove('selected'));
+      element.classList.add('selected');
+      selectedVenue = element.textContent;
+    }
+
+    function sendBooking(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+
+      if (!selectedVenue) {
+        alert('Please select a venue type.');
+        return;
+      }
+
+      const message = `Venue Booking Request:%0AName: ${name}%0AVenue: ${selectedVenue}%0ADate: ${date}%0ATime: ${time}`;
+      const phoneNumber = "1234567890"; // Replace with your WhatsApp number
+      const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+
+      window.open(whatsappURL, "_blank");
+    }
+  </script>
+
+</body>
+</html>

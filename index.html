@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mwalimu Hotel - Kisii County</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <style>
+    /* --- General Styling --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+
+    /* --- Navigation Bar --- */
+    .navbar {
+      background-color: #003366;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    }
+    .logo { height: 50px; }
+    .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+    }
+    .nav-links a:hover {
+      background-color: #0055a5;
+      border-radius: 4px;
+    }
+    .book-btn {
+      background-color: #ff9900;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .book-btn:hover { background-color: #e67e00; }
+
+    /* --- Hero Section --- */
+    .hero {
+      background: url('img.jpg') no-repeat center center/cover;
+      text-align: center;
+      color: blue;
+      padding: 100px 20px;
+    }
+    .hero h1 { font-size: 3em; margin-bottom: 20px; }
+    .hero p { font-size: 1.5em; }
+    .room-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.room-container {
+  width: 300px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: background-image 1s ease-in-out;
+  position: relative;
+}
+
+.room-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
+}
+
+    /* --- Gallery & Rooms --- */
+    .room-list {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+      background: #f4f4f4;
+    }
+    .room {
+      width: 30%;
+      min-width: 250px;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .room img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .room h3 {
+      margin-top: 10px;
+      color: #003366;
+    }
+
+    /* --- Testimonials --- */
+    .testimonials {
+      background-color: #e9f0f7;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .testimonial-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .testimonial {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 22%;
+      min-width: 220px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .testimonial h4 {
+      margin-bottom: 5px;
+      color: #0055a5;
+    }
+
+    /* --- Map --- */
+    .map {
+      background-color: #ffffff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .map iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* --- Footer --- */
+    .footer {
+      background-color: #003366;
+      color: white;
+      padding: 40px 20px;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .footer h4 {
+      margin-bottom: 10px;
+    }
+    .footer a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+    .footer a:hover { text-decoration: underline; }
+    .footer p {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    .social-media {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .social-icon {
+      width: 24px;
+      height: 24px;
+      margin: 0 10px;
+      filter: grayscale(50%) brightness(0.8);
+      vertical-align: middle;
+    }
+
+    /* --- WhatsApp Floating --- */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 999;
+    }
+    .whatsapp-float img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+    .whatsapp-float img:hover {
+      transform: scale(1.1);
+    }
+    .whatsapp-icon {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <img src="logo.png" alt="Mwalimu Hotel kisii conty" class="logo" />
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="meals.html">Meals</a>
+      <a href="rooms.html">Rooms</a>
+      <a href="dinning.html">Dining</a>
+      <a href="meetings.html">Meetings</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="con.html">Contact Us</a>
+    </nav>
+    <a href="book.html" class="book-btn">Book Online</a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to Mwalimu Hotel-Kisii County</h1>
+    <p>Enjoy a luxury experience</p>
+  </section>
+
+  <!-- Dynamic Background (Optional Room Previews) -->
+  <div class="room-list">
+    <div class="room-container" id="bg1"></div>
+    <div class="room-container" id="bg2"></div>
+    <div class="room-container" id="bg3"></div>
+  </div>
+
+  <script>
+    const room1 = ['mwal.jpg', 'lux.jpg', 'park.jpg'];
+    const room2 = ['mwal.jpg', 'lux.jpg', 'park.jpg'];
+    const room3 = ['mwal.jpg', 'lux.jpg', 'park.jpg'];
+
+    let index = 0;
+    function changeBackgrounds() {
+      document.getElementById('bg1').style.backgroundImage = `url('${room1[index]}')`;
+      document.getElementById('bg2').style.backgroundImage = `url('${room2[index]}')`;
+      document.getElementById('bg3').style.backgroundImage = `url('${room3[index]}')`;
+      index = (index + 1) % room1.length;
+    }
+    window.onload = changeBackgrounds;
+    setInterval(changeBackgrounds, 3000);
+  </script>
+
+  <!-- Static Room List -->
+  <section class="rooms">
+    <h2 style="text-align: center; margin: 20px 0; color: #003366;">Our Best Rooms</h2>
+    <div class="room-list">
+      <div class="room">
+        <img src="exec.jpg" alt="Executive Room" />
+        <h3>Executive Room</h3>
+      </div>
+      <div class="room">
+        <img src="pres.jpg" alt="Presidential Suite" />
+        <h3>Presidential Suite</h3>
+      </div>
+      <div class="room">
+        <img src="deluxe.jpg" alt="Deluxe Suite" />
+        <h3>Deluxe Suite</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>Our Guests Love Us</h2>
+    <div class="testimonial-list">
+      <div class="testimonial">
+        <h4>Hon. Simba Arati</h4>
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>"Wonderful stay with great service!"</p>
+      </div>
+      <div class="testimonial">
+        <h4>Esther Okenyuri</h4>
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>"The food and room were top-notch."</p>
+      </div>
+      <div class="testimonial">
+        <h4>Prof. Timothy Arege</h4>
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>"Perfect for meetings and relaxing."</p>
+      </div>
+      <div class="testimonial">
+        <h4>Google Review</h4>
+        <p>⭐⭐⭐⭐⭐</p>
+        <p>"Highly recommended on Google!"</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Floating Icon -->
+  <div class="whatsapp-float">
+    <a href="https://wa.me/254702900500" target="_blank">
+      <img src="whatsapp.png" alt="Chat on WhatsApp" />
+    </a>
+  </div>
+
+  <!-- Map -->
+  <section class="map">
+    <h2>Find Us</h2>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127994.49769889408!2d34.7284697!3d-0.6813535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182aaa92e452c52d%3A0x9c21edb60fdcbf82!2sMwalimu%20Sacco%20Plaza%2C%20Kisii!5e0!3m2!1sen!2ske!4v1718020000000"
+      loading="lazy"
+      allowfullscreen
+    ></iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div>
+        <h4>Address</h4>
+        <p>Mwalimu Hotel, Kisii County, Kenya</p>
+      </div>
+      <div>
+        <h4>Phone</h4>
+        <p>Manager: +254 702900500</p>
+      </div>
+      <div>
+        <h4>Short Links</h4>
+        <a href="#">Support</a><br />
+        <a href="#">Privacy Policy</a><br />
+        <a href="#">FAQs</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="https://wa.me/254702900500" target="_blank">
+          <img src="whatsapp.png" alt="WhatsApp" class="whatsapp-icon" />
+          Chat with us
+        </a>
+      </div>
+    </div>
+    <!-- Social Media Links -->
+  <div class="social-media">
+    <a href="https://www.facebook.com/" target="_blank">
+      <img src="facebook.png" alt="Facebook" class="social-icon" />
+    </a>
+    <a href="https://www.twitter.com/" target="_blank">
+      <img src="twitter.png" alt="Twitter" class="social-icon" />
+    </a>
+    <a href="https://www.youtube.com/" target="_blank">
+      <img src="youtube.png" alt="YouTube" class="social-icon" />
+    </a>
+    <a href="https://www.tiktok.com/en/" target="_blank">
+      <img src="tiktok.png" alt="TikTok" class="social-icon" />
+    </a>
+  </div>
+    <p class="copyright">© 2025 Mwalimu Hotel</p>
+  </footer>
+</body>
+</html>
+
+
+

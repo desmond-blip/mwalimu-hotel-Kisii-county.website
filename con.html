@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mwalimu Hotel</title>
+  <style>
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .sidebar {
+      width: 250px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-right: 40px;
+    }
+
+    .sidebar h2 {
+      margin-top: 0;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 15px;
+    }
+
+    .form-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #25d366;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #1ebe5d;
+    }
+
+    /* Footer Styling */
+    .footer {
+      background-color: rgba(255, 255, 255, 0.95);
+      color: #333;
+      padding: 40px 20px;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .footer h4 {
+      color: #003366;
+      margin-bottom: 10px;
+    }
+
+    .footer a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer p {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .social-media {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .social-icon {
+      width: 24px;
+      height: 24px;
+      margin: 0 10px;
+      filter: grayscale(50%) brightness(0.8);
+      vertical-align: middle;
+    }
+
+    .copyright {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #999;
+      text-align: center;
+    }
+
+    /* WhatsApp Floating */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 999;
+    }
+
+    .whatsapp-float img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+
+    .whatsapp-float img:hover {
+      transform: scale(1.1);
+    }
+
+    .whatsapp-icon {
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Sidebar with contact list -->
+  <div class="sidebar">
+    <h2>Mwalimu Hotel</h2>
+    <ul>
+      <li><strong>Contact</strong><br>Email: contact@mwalimuhotel.com<br>Phone: +254702500900</li>
+    </ul>
+  </div>
+
+  <!-- Contact form -->
+  <div class="form-container">
+    <h3>Contact Us</h3>
+    <form id="whatsappForm">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" rows="4" required></textarea>
+
+      <button type="submit">Submit to WhatsApp</button>
+    </form>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <div>
+      <h4>Address</h4>
+      <p>Mwalimu Hotel, Kisii County, Kenya</p>
+    </div>
+    <div>
+      <h4>Phone</h4>
+      <p>Manager: +254 702900500</p>
+    </div>
+    <div>
+      <h4>Short Links</h4>
+      <a href="#">Support</a><br />
+      <a href="#">Privacy Policy</a><br />
+      <a href="#">FAQs</a>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <a href="https://wa.me/254702900500" target="_blank">
+        <img src="whatsapp.png" alt="WhatsApp" class="whatsapp-icon" />
+        Chat with us
+      </a>
+    </div>
+  </div>
+
+  <!-- Social Media Links -->
+  <div class="social-media">
+    <a href="https://www.facebook.com/" target="_blank">
+      <img src="facebook.png" alt="Facebook" class="social-icon" />
+    </a>
+    <a href="https://www.twitter.com/" target="_blank">
+      <img src="twitter.png" alt="Twitter" class="social-icon" />
+    </a>
+    <a href="https://www.youtube.com/" target="_blank">
+      <img src="youtube.png" alt="YouTube" class="social-icon" />
+    </a>
+    <a href="https://www.tiktok.com/" target="_blank">
+      <img src="tiktok.png" alt="TikTok" class="social-icon" />
+    </a>
+  </div>
+
+  <p class="copyright">© 2025 Mwalimu Hotel</p>
+</footer>
+
+<!-- WhatsApp Floating Button -->
+<div class="whatsapp-float">
+  <a href="https://wa.me/254702900500" target="_blank">
+    <img src="whatsapp.png" alt="Chat on WhatsApp">
+  </a>
+</div>
+
+<script>
+  document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    const fullMessage = `Hello, my name is ${name}. My email is ${email}. Message: ${message}`;
+    const encodedMessage = encodeURIComponent(fullMessage);
+
+    const phoneNumber = "254746268041";
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappURL, '_blank');
+  });
+</script>
+
+</body>
+</html>
